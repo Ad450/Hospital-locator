@@ -4,5 +4,6 @@ import 'package:hospital_locator/features/location/domain/entities/location.dart
 
 abstract class LocationsRepo{
   factory LocationsRepo ()=> LocationsRepoImpl();
- Stream<Position>? getCurrentLocation();
+ Future<Location> getCurrentLocation();
+// Future<Place> searchPlaces();
 }
