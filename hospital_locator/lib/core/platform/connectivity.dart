@@ -27,9 +27,7 @@ class InternetConnectivity {
   Stream<bool> get onConnectivityChange => _connectivityStream;
 
   init() {
-    onConnectivityChange.listen((event) async {
-      final result = await _checkInternetConnectivity();
-
+    onConnectivityChange.listen((result) async {
       if (!result) throw InternetConnectivityFailure("no internet connection");
     });
 

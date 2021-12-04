@@ -1,7 +1,17 @@
-import 'package:hospital_locator/core/platform/connectivity.dart';
 
-class InternetConnectivityFailure{
+class InternetConnectivityFailure {
   String message;
 
   InternetConnectivityFailure(this.message);
+}
+
+class NetworkFailures {
+  String message;
+  NetworkFailures(this.message);
+}
+
+class ApiFailure {
+  String message;
+
+  ApiFailure(this.message);
 }
