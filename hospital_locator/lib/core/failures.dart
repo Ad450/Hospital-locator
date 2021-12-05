@@ -1,4 +1,3 @@
-
 class InternetConnectivityFailure {
   String message;
 
@@ -14,4 +13,14 @@ class ApiFailure {
   String message;
 
   ApiFailure(this.message);
+}
+
+class DatabaseFailure {
+  String message;
+  DatabaseFailure(this.message);
+}
+
+class CacheFailure{
+  String message;
+  CacheFailure(this.message);
 }
