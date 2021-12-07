@@ -17,6 +17,6 @@ guardedCache<T>(Function run, String? message) async {
   } on DatabaseFailure catch (e) {
     throw CacheFailure(e.message);
   } catch (_) {
-    throw CacheFailure("something bad happened. Couldnot cache ");  
+    throw CacheFailure("something bad happened. Couldnot cache ");
   }
 }

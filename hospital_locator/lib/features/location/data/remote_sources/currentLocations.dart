@@ -1,8 +1,5 @@
-
-
 // import 'package:geolocator/geolocator.dart';
 // import 'package:hospital_locator/features/location/data/models/location_model.dart';
-
 
 // class CurrentLocations {
 

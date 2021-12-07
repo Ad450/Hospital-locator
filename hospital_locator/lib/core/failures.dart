@@ -20,7 +20,7 @@ class DatabaseFailure {
   DatabaseFailure(this.message);
 }
 
-class CacheFailure{
+class CacheFailure {
   String message;
   CacheFailure(this.message);
 }
