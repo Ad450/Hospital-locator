@@ -1,8 +1,8 @@
-import 'package:dio/dio.dart';
+import 'package:hospital_locator/core/data/network/network_response_model.dart';
 
 abstract class NetworkService {
-  Future<Response> postHttp(
+  Future<NetworkResponse> postHttp(
       {required String url, required Map<String, dynamic> postData});
-  Future<Response> getHttp(url);
+  Future<NetworkResponse> getHttp(url);
   Future<void> delete({required url, required String id});
 }

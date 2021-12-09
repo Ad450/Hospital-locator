@@ -1,18 +1,23 @@
-class InternetConnectivityFailure {
+abstract class Failure {
   String message;
-
-  InternetConnectivityFailure(this.message);
+  Failure(this.message);
 }
 
-class NetworkFailures {
+class InternetConnectivityFailure extends Failure {
   String message;
-  NetworkFailures(this.message);
+
+  InternetConnectivityFailure(this.message) : super(message);
 }
 
-class ApiFailure {
+class NetworkFailures extends Failure {
+  String message;
+  NetworkFailures(this.message) : super(message);
+}
+
+class ApiFailure extends Failure {
   String message;
 
-  ApiFailure(this.message);
+  ApiFailure(this.message) : super(message);
 }
 
 class DatabaseFailure {

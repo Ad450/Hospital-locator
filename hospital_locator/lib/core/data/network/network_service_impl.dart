@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:hospital_locator/core/data/network/handle_response.dart';
+import 'package:hospital_locator/core/data/network/network_response_model.dart';
 import 'package:hospital_locator/core/data/network/network_service.dart';
 
 class NetworkServiceImpl implements NetworkService {
@@ -23,7 +24,7 @@ class NetworkServiceImpl implements NetworkService {
   }
 
   @override
-  Future<Response> getHttp(url) async {
+  Future<NetworkResponse> getHttp(url) async {
     try {
       final _response = await _dio.get(url);
       return handleResponse(_response);
@@ -33,7 +34,7 @@ class NetworkServiceImpl implements NetworkService {
   }
 
   @override
-  Future<Response> postHttp(
+  Future<NetworkResponse> postHttp(
       {required String url, required Map<String, dynamic> postData}) async {
     try {
       final _response = await _dio.post(url, data: postData);

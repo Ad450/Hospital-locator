@@ -1,24 +1,23 @@
 import 'package:dio/dio.dart';
+import 'package:hospital_locator/core/data/network/network_response_model.dart';
 import 'package:hospital_locator/core/failures.dart';
-
-// initial request options given to all request comes back again
-RequestOptions _requestOptions = RequestOptions(
-  path: "",
-  connectTimeout: 10000,
-  contentType: "application/json",
-);
 
 // can replace  ApiFailure messages with generic api strings
 
 // when request goes well in try block
-Response handleResponse(Response _response) {
+NetworkResponse handleResponse(Response _response) {
   if (_response.statusCode.toString().startsWith("2")) {
     if ((_response.data as Map<String, dynamic>).containsKey("data")) {
-      return Response(requestOptions: _requestOptions, data: _response.data);
+      return NetworkResponse(
+          data: _response.data as Map<String, dynamic>,
+          error: ApiFailure(""),
+          result: NetworkResult.SUCCESS);
     }
 
-    return Response(
-        requestOptions: _requestOptions, data: {"data": _response.data});
+    return NetworkResponse(
+        data: _response.data as Map<String, dynamic>,
+        error: ApiFailure(""),
+        result: NetworkResult.SUCCESS);
   }
 
   throw ApiFailure("something bad happened");
@@ -26,50 +25,72 @@ Response handleResponse(Response _response) {
 
 // to be used in catch bloc where the Dioerror is passed here
 
-Response handleErrorResponse(DioError error) {
+NetworkResponse handleErrorResponse(DioError error) {
   if (error.type == DioErrorType.connectTimeout ||
       error.type == DioErrorType.sendTimeout ||
       error.type == DioErrorType.receiveTimeout) {
-    return Response(
-        requestOptions: _requestOptions,
-        data: {"error": ApiFailure("request time out")});
+    return NetworkResponse(
+        data: {
+          "message": "something bad happened",
+          "error": "connetion time out"
+        },
+        result: NetworkResult.SERVER_TIMEOUT,
+        error: ApiFailure("connection time out"));
   }
 
   if (error.type == DioErrorType.response) {
     if (error.response == null) {
-      return Response(requestOptions: _requestOptions, data: {
-        "error": ApiFailure("request unsuccesfull, please try again")
-      });
+      return NetworkResponse(
+          data: {
+            "message": "something bad happened",
+            "error": "cnull response"
+          },
+          result: NetworkResult.BAD_REQUEST,
+          error: ApiFailure("couldnot perform operation"));
     }
 
     return _switchStatus(error.response!);
   }
 
   if (error.type == DioErrorType.cancel) {
-    return Response(
-        requestOptions: _requestOptions,
-        data: {"error": ApiFailure("something bad happened")});
+    return NetworkResponse(
+        data: {"message": "something bad happened", "error": "cancelled"},
+        result: NetworkResult.METHOD_DISALLOWED,
+        error: ApiFailure("please try again"));
   }
 
   // this return will take of DioErrorType.other
-  return Response(
-      requestOptions: _requestOptions,
-      data: {"error": ApiFailure("something bad happened")});
+  return NetworkResponse(data: {
+    "message": "something bad happened",
+    "error": "connetion time out"
+  }, result: NetworkResult.FAILURE, error: ApiFailure("please try again"));
 }
 
 _switchStatus(Response _response) {
   switch (_response.statusCode) {
     case 400:
-      return Response(
-          requestOptions: _requestOptions,
-          data: {"error": ApiFailure("you cannot make this request, ")});
+      return NetworkResponse(
+          data: {
+            "message": "something bad happened",
+            "error": "connetion time out"
+          },
+          result: NetworkResult.FAILURE,
+          error: ApiFailure("not authorised to carry this operation"));
     case 404:
-      return Response(
-          requestOptions: _requestOptions,
-          data: {"error": ApiFailure("something bad happened, please retry")});
+      return NetworkResponse(data: {
+        "message": "something bad happened",
+        "error": "connetion time out"
+      }, result: NetworkResult.NOT_FOUND, error: ApiFailure(" not foundx="));
     case 500:
-      return Response(
-          requestOptions: _requestOptions,
-          data: {"error": ApiFailure("something bad happened, please retry")});
+      return NetworkResponse(data: {
+        "message": "something bad happened",
+        "error": "connetion time out"
+      }, result: NetworkResult.SERVER_ERROR, error: ApiFailure("server error"));
+
+    default:
+      return NetworkResponse(data: {
+        "message": "something bad happened",
+        "error": "connetion time out"
+      }, result: NetworkResult.FAILURE, error: ApiFailure("failure"));
   }
 }
