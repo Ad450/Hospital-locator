@@ -9,9 +9,9 @@ class InternetConnectivityFailure extends Failure {
   InternetConnectivityFailure(this.message) : super(message);
 }
 
-class NetworkFailures extends Failure {
+class NetworkFailure extends Failure {
   String message;
-  NetworkFailures(this.message) : super(message);
+  NetworkFailure(this.message) : super(message);
 }
 
 class ApiFailure extends Failure {
@@ -20,12 +20,14 @@ class ApiFailure extends Failure {
   ApiFailure(this.message) : super(message);
 }
 
-class DatabaseFailure {
-  String message;
-  DatabaseFailure(this.message);
+class DatabaseFailure extends Failure {
+  DatabaseFailure(String message) : super(message);
 }
 
-class CacheFailure {
-  String message;
-  CacheFailure(this.message);
+class CacheFailure extends Failure {
+  CacheFailure(String message) : super(message);
+}
+
+class UIError extends Failure {
+  UIError(String message) : super(message);
 }
