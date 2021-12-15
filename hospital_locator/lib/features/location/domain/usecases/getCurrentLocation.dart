@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:hospital_locator/core/app_typedefs.dart';
 import 'package:hospital_locator/core/failures.dart';
-import 'package:hospital_locator/features/location/domain/models/location_model.dart';
+import 'package:hospital_locator/features/location/data/models/location_model/location_model.dart';
 import 'package:hospital_locator/features/location/domain/repository/location_repo.dart';
 
 class GetCurrentLocation implements Usecase<LocationModel, NoParam> {
@@ -9,7 +9,7 @@ class GetCurrentLocation implements Usecase<LocationModel, NoParam> {
   GetCurrentLocation(this._locationRepository);
 
   @override
-  Future<Either<UIError, LocationModel>> call() async {
+  Future<Either<UIError, LocationModel>> call(noParam) async {
     try {
       final _result = await _locationRepository.getCurrentLocation();
       return Right(_result);

@@ -2,7 +2,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:hospital_locator/core/data/database/database_collection.dart';
 import 'package:hospital_locator/core/data/database/database_service.dart';
 import 'package:hospital_locator/core/failures.dart';
-import 'package:hospital_locator/features/location/domain/models/location_model.dart';
+import 'package:hospital_locator/features/location/data/models/location_model/location_model.dart';
 
 class DatabaseServiceImpl implements DatabaseService {
   @override

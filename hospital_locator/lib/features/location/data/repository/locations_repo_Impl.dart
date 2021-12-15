@@ -1,15 +1,23 @@
-// import 'package:geolocator/geolocator.dart';
-// import 'package:hospital_locator/features/location/data/remote_sources/currentLocations.dart';
-// import 'package:hospital_locator/features/location/domain/entities/location.dart';
-// import 'package:hospital_locator/features/location/domain/repository/location_repo.dart';
+import 'package:hospital_locator/core/utilities/error_helpers.dart';
+import 'package:hospital_locator/features/location/data/data_sources/locations_remote_data_source.dart';
+import 'package:hospital_locator/features/location/data/models/location_model/location_model.dart';
+import 'package:hospital_locator/features/location/data/models/predictions_model.dart/prediction_model.dart';
+import 'package:hospital_locator/features/location/domain/repository/location_repo.dart';
 
-// class LocationsRepoImpl implements LocationsRepo{
-//   // no dependency injection in this usecase, just testing out functionalities
-//   LocationsRepoImpl._();
-//   factory LocationsRepoImpl ()=> LocationsRepoImpl._();
-//   @override
-//   Future<Location> getCurrentLocation() {
-//     return CurrentLocations.getCurrentLocation();
-//   }
+class LocationRepositoryImpl implements LocationRepository {
+  LocationRemoteDataSource _locationRemoteDataSource;
 
-// }
+  LocationRepositoryImpl(this._locationRemoteDataSource);
+
+  @override
+  Future<LocationModel> getCurrentLocation() {
+    return guardedApiCall<LocationModel>(
+        () => _locationRemoteDataSource.getCurrentLocation());
+  }
+
+  @override
+  Future<List<Prediction>> getSearchedLocation(String query) {
+    return guardedApiCall<List<Prediction>>(
+        () => _locationRemoteDataSource.getSearchedLocation(query));
+  }
+}
