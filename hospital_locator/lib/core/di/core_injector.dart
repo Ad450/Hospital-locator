@@ -9,7 +9,7 @@ part 'core_injector.g.dart';
 abstract class CoreInjector {
   static late KiwiContainer _container;
 
-  static void setUp() {
+  void setUp() {
     _container = KiwiContainer();
 
     _$CoreInjector()._configure();
@@ -19,3 +19,5 @@ abstract class CoreInjector {
   @Register.factory(NetworkService, from: NetworkServiceImpl)
   void _configure();
 }
+
+CoreInjector coreInjector() => _$CoreInjector();

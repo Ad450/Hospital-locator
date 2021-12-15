@@ -10,7 +10,7 @@ abstract class LocationInjector {
   static late KiwiContainer _kiwiContainer;
   static final resolve = _kiwiContainer.resolve();
 
-  static void setUp() {
+  void setUp() {
     _kiwiContainer = KiwiContainer();
 
     _$LocationInjector()._configure();
@@ -23,3 +23,5 @@ abstract class LocationInjector {
   @Register.singleton(GetCurrentLocation)
   void _configure();
 }
+
+LocationInjector locationInjector() => _$LocationInjector();
