@@ -11,7 +11,7 @@ class PredictionCubit extends Cubit<PredictionState> {
 
   PredictionCubit(this._getSearchedLocation)
       : super(
-          PredictionState.initial(error: "", prediction: null),
+          PredictionState.initial(error: "", prediction: []),
         );
 
   Future<void> getSearchedLocation(String place) async {

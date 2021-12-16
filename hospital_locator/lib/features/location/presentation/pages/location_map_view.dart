@@ -14,17 +14,11 @@ class _LocationMapViewState extends State<LocationMapView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BlocBuilder<LocationCubit, LocationState>(
-        builder: (_, state) => state.maybeMap(
-            orElse: () => Center(child: Text("could not load map")),
-            loaded: (state) => GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                    target: LatLng(
-                        state.location.lattitude, state.location.longitude),
-                  ),
-                ),
-            error: (state) => Center(child: Text(state.error))),
-      ),
-    );
+        height: MediaQuery.of(context).size.height,
+        child: GoogleMap(
+          initialCameraPosition: CameraPosition(
+            target: LatLng(7.946527, -1.023194),
+          ),
+        ));
   }
 }

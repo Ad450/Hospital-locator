@@ -7,6 +7,7 @@ import 'package:hospital_locator/features/location/domain/di/location_injector.d
 import 'package:hospital_locator/features/location/domain/usecases/getCurrentLocation.dart';
 import 'package:hospital_locator/features/location/domain/usecases/get_searched_location.dart';
 import 'package:hospital_locator/features/location/presentation/pages/location_map_view.dart';
+import 'package:hospital_locator/features/location/presentation/pages/prediction_view.dart';
 import 'package:hospital_locator/features/location/presentation/state/location/location_cubit.dart';
 import 'package:hospital_locator/features/location/presentation/state/prediction/prediction_cubit.dart';
 
@@ -38,7 +39,20 @@ class _HospitalLocatorState extends State<HospitalLocator> {
                 LocationInjector.resolve<GetSearchedLocation>()))
       ],
       child: MaterialApp(
-        home: LocationMapView(),
+        home: Scaffold(
+          body: SafeArea(
+            child: Container(
+              child: Stack(
+                // fit: StackFit.loose,
+                clipBehavior: Clip.hardEdge,
+                children: [
+                  LocationMapView(),
+                  Positioned(top: 30, child: PredictionView()),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

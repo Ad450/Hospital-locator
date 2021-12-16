@@ -18,15 +18,14 @@ class _$PredictionStateTearOff {
   const _$PredictionStateTearOff();
 
   _Initial initial(
-      {required String error, required List<Prediction?>? prediction}) {
+      {required String error, required List<Prediction> prediction}) {
     return _Initial(
       error: error,
       prediction: prediction,
     );
   }
 
-  _Error error(
-      {required String error, required List<Prediction?>? prediction}) {
+  _Error error({required String error, required List<Prediction> prediction}) {
     return _Error(
       error: error,
       prediction: prediction,
@@ -34,7 +33,7 @@ class _$PredictionStateTearOff {
   }
 
   _Loading loading(
-      {required String error, required List<Prediction?>? prediction}) {
+      {required String error, required List<Prediction> prediction}) {
     return _Loading(
       error: error,
       prediction: prediction,
@@ -42,7 +41,7 @@ class _$PredictionStateTearOff {
   }
 
   _Loaded loaded(
-      {required String error, required List<Prediction?>? prediction}) {
+      {required String error, required List<Prediction> prediction}) {
     return _Loaded(
       error: error,
       prediction: prediction,
@@ -56,34 +55,32 @@ const $PredictionState = _$PredictionStateTearOff();
 /// @nodoc
 mixin _$PredictionState {
   String get error => throw _privateConstructorUsedError;
-  List<Prediction?>? get prediction => throw _privateConstructorUsedError;
+  List<Prediction> get prediction => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction)
         initial,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        error,
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction) error,
+    required TResult Function(String error, List<Prediction> prediction)
         loading,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        loaded,
+    required TResult Function(String error, List<Prediction> prediction) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,7 +120,7 @@ abstract class $PredictionStateCopyWith<$Res> {
   factory $PredictionStateCopyWith(
           PredictionState value, $Res Function(PredictionState) then) =
       _$PredictionStateCopyWithImpl<$Res>;
-  $Res call({String error, List<Prediction?>? prediction});
+  $Res call({String error, List<Prediction> prediction});
 }
 
 /// @nodoc
@@ -148,7 +145,7 @@ class _$PredictionStateCopyWithImpl<$Res>
       prediction: prediction == freezed
           ? _value.prediction
           : prediction // ignore: cast_nullable_to_non_nullable
-              as List<Prediction?>?,
+              as List<Prediction>,
     ));
   }
 }
@@ -159,7 +156,7 @@ abstract class _$InitialCopyWith<$Res>
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
   @override
-  $Res call({String error, List<Prediction?>? prediction});
+  $Res call({String error, List<Prediction> prediction});
 }
 
 /// @nodoc
@@ -184,7 +181,7 @@ class __$InitialCopyWithImpl<$Res> extends _$PredictionStateCopyWithImpl<$Res>
       prediction: prediction == freezed
           ? _value.prediction
           : prediction // ignore: cast_nullable_to_non_nullable
-              as List<Prediction?>?,
+              as List<Prediction>,
     ));
   }
 }
@@ -197,7 +194,7 @@ class _$_Initial implements _Initial {
   @override
   final String error;
   @override
-  final List<Prediction?>? prediction;
+  final List<Prediction> prediction;
 
   @override
   String toString() {
@@ -229,14 +226,12 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction)
         initial,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        error,
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction) error,
+    required TResult Function(String error, List<Prediction> prediction)
         loading,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        loaded,
+    required TResult Function(String error, List<Prediction> prediction) loaded,
   }) {
     return initial(this.error, prediction);
   }
@@ -244,10 +239,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
   }) {
     return initial?.call(this.error, prediction);
   }
@@ -255,10 +250,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -308,12 +303,12 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements PredictionState {
   factory _Initial(
       {required String error,
-      required List<Prediction?>? prediction}) = _$_Initial;
+      required List<Prediction> prediction}) = _$_Initial;
 
   @override
   String get error => throw _privateConstructorUsedError;
   @override
-  List<Prediction?>? get prediction => throw _privateConstructorUsedError;
+  List<Prediction> get prediction => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>
@@ -325,7 +320,7 @@ abstract class _$ErrorCopyWith<$Res> implements $PredictionStateCopyWith<$Res> {
   factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
       __$ErrorCopyWithImpl<$Res>;
   @override
-  $Res call({String error, List<Prediction?>? prediction});
+  $Res call({String error, List<Prediction> prediction});
 }
 
 /// @nodoc
@@ -350,7 +345,7 @@ class __$ErrorCopyWithImpl<$Res> extends _$PredictionStateCopyWithImpl<$Res>
       prediction: prediction == freezed
           ? _value.prediction
           : prediction // ignore: cast_nullable_to_non_nullable
-              as List<Prediction?>?,
+              as List<Prediction>,
     ));
   }
 }
@@ -363,7 +358,7 @@ class _$_Error implements _Error {
   @override
   final String error;
   @override
-  final List<Prediction?>? prediction;
+  final List<Prediction> prediction;
 
   @override
   String toString() {
@@ -395,14 +390,12 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction)
         initial,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        error,
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction) error,
+    required TResult Function(String error, List<Prediction> prediction)
         loading,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        loaded,
+    required TResult Function(String error, List<Prediction> prediction) loaded,
   }) {
     return error(this.error, prediction);
   }
@@ -410,10 +403,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
   }) {
     return error?.call(this.error, prediction);
   }
@@ -421,10 +414,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -473,13 +466,12 @@ class _$_Error implements _Error {
 
 abstract class _Error implements PredictionState {
   factory _Error(
-      {required String error,
-      required List<Prediction?>? prediction}) = _$_Error;
+      {required String error, required List<Prediction> prediction}) = _$_Error;
 
   @override
   String get error => throw _privateConstructorUsedError;
   @override
-  List<Prediction?>? get prediction => throw _privateConstructorUsedError;
+  List<Prediction> get prediction => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ErrorCopyWith<_Error> get copyWith => throw _privateConstructorUsedError;
@@ -491,7 +483,7 @@ abstract class _$LoadingCopyWith<$Res>
   factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
       __$LoadingCopyWithImpl<$Res>;
   @override
-  $Res call({String error, List<Prediction?>? prediction});
+  $Res call({String error, List<Prediction> prediction});
 }
 
 /// @nodoc
@@ -516,7 +508,7 @@ class __$LoadingCopyWithImpl<$Res> extends _$PredictionStateCopyWithImpl<$Res>
       prediction: prediction == freezed
           ? _value.prediction
           : prediction // ignore: cast_nullable_to_non_nullable
-              as List<Prediction?>?,
+              as List<Prediction>,
     ));
   }
 }
@@ -529,7 +521,7 @@ class _$_Loading implements _Loading {
   @override
   final String error;
   @override
-  final List<Prediction?>? prediction;
+  final List<Prediction> prediction;
 
   @override
   String toString() {
@@ -561,14 +553,12 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction)
         initial,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        error,
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction) error,
+    required TResult Function(String error, List<Prediction> prediction)
         loading,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        loaded,
+    required TResult Function(String error, List<Prediction> prediction) loaded,
   }) {
     return loading(this.error, prediction);
   }
@@ -576,10 +566,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
   }) {
     return loading?.call(this.error, prediction);
   }
@@ -587,10 +577,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -640,12 +630,12 @@ class _$_Loading implements _Loading {
 abstract class _Loading implements PredictionState {
   factory _Loading(
       {required String error,
-      required List<Prediction?>? prediction}) = _$_Loading;
+      required List<Prediction> prediction}) = _$_Loading;
 
   @override
   String get error => throw _privateConstructorUsedError;
   @override
-  List<Prediction?>? get prediction => throw _privateConstructorUsedError;
+  List<Prediction> get prediction => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LoadingCopyWith<_Loading> get copyWith =>
@@ -658,7 +648,7 @@ abstract class _$LoadedCopyWith<$Res>
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
   @override
-  $Res call({String error, List<Prediction?>? prediction});
+  $Res call({String error, List<Prediction> prediction});
 }
 
 /// @nodoc
@@ -683,7 +673,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$PredictionStateCopyWithImpl<$Res>
       prediction: prediction == freezed
           ? _value.prediction
           : prediction // ignore: cast_nullable_to_non_nullable
-              as List<Prediction?>?,
+              as List<Prediction>,
     ));
   }
 }
@@ -696,7 +686,7 @@ class _$_Loaded implements _Loaded {
   @override
   final String error;
   @override
-  final List<Prediction?>? prediction;
+  final List<Prediction> prediction;
 
   @override
   String toString() {
@@ -728,14 +718,12 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction)
         initial,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        error,
-    required TResult Function(String error, List<Prediction?>? prediction)
+    required TResult Function(String error, List<Prediction> prediction) error,
+    required TResult Function(String error, List<Prediction> prediction)
         loading,
-    required TResult Function(String error, List<Prediction?>? prediction)
-        loaded,
+    required TResult Function(String error, List<Prediction> prediction) loaded,
   }) {
     return loaded(this.error, prediction);
   }
@@ -743,10 +731,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
   }) {
     return loaded?.call(this.error, prediction);
   }
@@ -754,10 +742,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String error, List<Prediction?>? prediction)? initial,
-    TResult Function(String error, List<Prediction?>? prediction)? error,
-    TResult Function(String error, List<Prediction?>? prediction)? loading,
-    TResult Function(String error, List<Prediction?>? prediction)? loaded,
+    TResult Function(String error, List<Prediction> prediction)? initial,
+    TResult Function(String error, List<Prediction> prediction)? error,
+    TResult Function(String error, List<Prediction> prediction)? loading,
+    TResult Function(String error, List<Prediction> prediction)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -807,12 +795,12 @@ class _$_Loaded implements _Loaded {
 abstract class _Loaded implements PredictionState {
   factory _Loaded(
       {required String error,
-      required List<Prediction?>? prediction}) = _$_Loaded;
+      required List<Prediction> prediction}) = _$_Loaded;
 
   @override
   String get error => throw _privateConstructorUsedError;
   @override
-  List<Prediction?>? get prediction => throw _privateConstructorUsedError;
+  List<Prediction> get prediction => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;

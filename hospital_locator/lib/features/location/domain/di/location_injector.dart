@@ -8,7 +8,7 @@ part 'location_injector.g.dart';
 
 abstract class LocationInjector {
   static late KiwiContainer _kiwiContainer;
-  static final resolve = _kiwiContainer.resolve();
+  static final resolve = _kiwiContainer.resolve;
 
   void setUp() {
     _kiwiContainer = KiwiContainer();
