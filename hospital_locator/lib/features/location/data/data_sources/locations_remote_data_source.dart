@@ -28,7 +28,11 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   Future<List<Prediction?>> getSearchedLocation(String query) async {
     final _googlePlace = GooglePlace(env["apikey"]!);
     final _response = await _googlePlace.queryAutocomplete.get(query);
+
+    print(_response);
     if (_response != null) {
+      // testing
+
       _response.predictions!.map(
           (e) => Prediction(placeId: e.placeId, description: e.description));
     }

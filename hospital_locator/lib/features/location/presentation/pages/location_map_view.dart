@@ -14,11 +14,12 @@ class _LocationMapViewState extends State<LocationMapView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height,
-        child: GoogleMap(
-          initialCameraPosition: CameraPosition(
-            target: LatLng(7.946527, -1.023194),
-          ),
-        ));
+      height: MediaQuery.of(context).size.height,
+      child: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(7.946527, -1.023194),
+        ),
+      ),
+    );
   }
 }

@@ -41,15 +41,11 @@ class _HospitalLocatorState extends State<HospitalLocator> {
       child: MaterialApp(
         home: Scaffold(
           body: SafeArea(
-            child: Container(
-              child: Stack(
-                // fit: StackFit.loose,
-                clipBehavior: Clip.hardEdge,
-                children: [
-                  LocationMapView(),
-                  Positioned(top: 30, child: PredictionView()),
-                ],
-              ),
+            child: Stack(
+              children: [
+                LocationMapView(),
+                Positioned(child: PredictionView()),
+              ],
             ),
           ),
         ),
