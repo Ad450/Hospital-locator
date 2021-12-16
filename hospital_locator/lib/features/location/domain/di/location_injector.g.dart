@@ -14,7 +14,7 @@ class _$LocationInjector extends LocationInjector {
       ..registerFactory<LocationRepository>(
           (c) => LocationRepositoryImpl(c<LocationRemoteDataSource>()))
       ..registerFactory<LocationRemoteDataSource>(
-          (c) => LocationRemoteDataSourceImpl())
+          (c) => LocationRemoteDataSourceImpl(c<NetworkService>()))
       ..registerSingleton((c) => GetSearchedLocation(c<LocationRepository>()))
       ..registerSingleton((c) => GetCurrentLocation(c<LocationRepository>()));
   }

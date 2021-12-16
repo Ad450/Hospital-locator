@@ -7,7 +7,7 @@ import 'package:hospital_locator/core/failures.dart';
 // when request goes well in try block
 NetworkResponse handleResponse(Response _response) {
   if (_response.statusCode.toString().startsWith("2")) {
-    if ((_response.data as Map<String, dynamic>).containsKey("data")) {
+    if ((_response.data as Map<String, dynamic>).containsKey("predictions")) {
       return NetworkResponse(
           data: _response.data as Map<String, dynamic>,
           error: ApiFailure(""),

@@ -13,9 +13,9 @@ class PredictionView extends StatefulWidget {
 class _PredictionViewState extends State<PredictionView> {
   final _predictionController = TextEditingController();
 
-  void _getPredictions() {
+  void _getPredictions() async {
     if (mounted) {
-      BlocProvider.of<PredictionCubit>(context, listen: false)
+      await BlocProvider.of<PredictionCubit>(context, listen: false)
           .getSearchedLocation(_predictionController.value.text.trim());
     }
   }
@@ -42,7 +42,8 @@ class _PredictionViewState extends State<PredictionView> {
                       contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0)),
                   cursorHeight: 15,
                   showCursor: true,
-                  onEditingComplete: () => _getPredictions(),
+                  onChanged: (input) async => _getPredictions(),
+                  onEditingComplete: () async => _getPredictions(),
                 ),
               ),
               SizedBox(width: 20),
