@@ -44,17 +44,18 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
       }
     }
     throw ApiFailure("could not fetch predicitions");
-    // final _response = await _networkService.getHttp(
-    //     "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$query&key=${env["apikey"]}");
-
-    // if (_response.data.containsKey("error_message")) {
-    //   throw ApiFailure(_response.data["error_message"]);
-    // }
-
-    // return _response.data["predictions"]
-    //     .map((prediction) => Prediction(
-    //         placeId: prediction["place_id"],
-    //         description: prediction["description"]))
-    //     .toList();
   }
+  //   final _response = await _networkService.getHttp(
+  //       "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$query&key=AIzaSyCc_XTCz8CDZBYm78UMOCavIQpBCCFp7ls");
+
+  //   if (_response.data.containsKey("error_message")) {
+  //     throw ApiFailure(_response.data["error_message"]);
+  //   }
+
+  //   return _response.data["predictions"]
+  //       .map((prediction) => Prediction(
+  //           placeId: prediction["place_id"],
+  //           description: prediction["description"]))
+  //       .toList();
+  // }
 }
