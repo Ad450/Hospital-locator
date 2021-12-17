@@ -31,31 +31,33 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
 
   @override
   Future<List<Prediction?>> getSearchedLocation(String query) async {
-    final _googlePlace = GooglePlace("AIzaSyCc_XTCz8CDZBYm78UMOCavIQpBCCFp7ls");
+    //   final _googlePlace = GooglePlace("AIzaSyCc_XTCz8CDZBYm78UMOCavIQpBCCFp7ls");
 
-    final _response = await _googlePlace.autocomplete.get(query);
+    //   final _response =
+    //       await _googlePlace.search.getFindPlace(query, InputType.TextQuery);
 
-    print(_response);
-    if (_response != null) {
-      if (_response.predictions != null || _response.predictions!.length > 0) {
-        print(_response.predictions);
-        _response.predictions!.map(
-            (e) => Prediction(placeId: e.placeId, description: e.description));
-      }
+    //   print(_response);
+    //   if (_response != null) {
+    //     if (_response.candidates != null || _response.candidates!.length > 0) {
+    //       print(_response.candidates);
+    //       _response.candidates!
+    //           .map((e) => Prediction(placeId: e.placeId, description: e.name));
+    //     }
+    //   }
+    //   throw ApiFailure("could not fetch predicitions");
+    // }
+
+    final _response = await _networkService.getHttp(
+        "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$query&key=AIzaSyCc_XTCz8CDZBYm78UMOCavIQpBCCFp7ls");
+
+    if (_response.data.containsKey("error_message")) {
+      throw ApiFailure(_response.data["error_message"]);
     }
-    throw ApiFailure("could not fetch predicitions");
+
+    return _response.data["predictions"]
+        .map((prediction) => Prediction(
+            placeId: prediction["place_id"],
+            description: prediction["description"]))
+        .toList();
   }
-  //   final _response = await _networkService.getHttp(
-  //       "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$query&key=AIzaSyCc_XTCz8CDZBYm78UMOCavIQpBCCFp7ls");
-
-  //   if (_response.data.containsKey("error_message")) {
-  //     throw ApiFailure(_response.data["error_message"]);
-  //   }
-
-  //   return _response.data["predictions"]
-  //       .map((prediction) => Prediction(
-  //           placeId: prediction["place_id"],
-  //           description: prediction["description"]))
-  //       .toList();
-  // }
 }
